@@ -359,7 +359,10 @@ func renderStruct(member spec.Member) swaggerParameterObject {
 			continue
 		}
 
-		sp.Name = tag.Name
+		if tag.Key == "form" {
+			sp.Name = tag.Name
+		}
+
 		if len(tag.Options) == 0 {
 			sp.Required = true
 			continue
